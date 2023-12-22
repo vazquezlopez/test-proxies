@@ -1,0 +1,8 @@
+{
+  "proxies": [
+    {
+      "name": "ECHO-proxy"
+    }
+  ],
+  "sharedflows": []
+}

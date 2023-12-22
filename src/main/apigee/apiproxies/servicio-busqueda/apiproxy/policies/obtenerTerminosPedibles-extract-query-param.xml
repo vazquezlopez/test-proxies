@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="true" enabled="true" name="obtenerTerminosPedibles-extract-query-param">
+  <DisplayName>obtenerTerminosPedibles Extract Query Param</DisplayName>
+  <Source>request</Source>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <QueryParam name="idEstablecimiento">
+    <Pattern ignoreCase="true">{idEstablecimiento}</Pattern>
+  </QueryParam>
+  <QueryParam name="nombreCategoria">
+    <Pattern ignoreCase="true">{nombreCategoria}</Pattern>
+  </QueryParam>
+  <QueryParam name="pedible">
+    <Pattern ignoreCase="true">{pedible}</Pattern>
+  </QueryParam>
+</ExtractVariables>

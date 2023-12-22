@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ResponseCache async="false" continueOnError="false" enabled="true" name="Response-Cache-CrossmapSetMembersDeCrossmapSet">
+  <DisplayName>Response Cache-CrossmapSetMembersDeCrossmapSet</DisplayName>
+  <Properties/>
+  <CacheResource>CrossmapSetMembersDeCrossmapSetCache</CacheResource>
+  <CacheKey>
+    <Prefix/>
+    <KeyFragment ref="request.uri" type="string"/>
+  </CacheKey>
+  <Scope>Global</Scope>
+  <ExpirySettings>
+    <ExpiryDate/>
+    <TimeOfDay/>
+    <TimeoutInSec ref="">80000</TimeoutInSec>
+  </ExpirySettings>
+  <SkipCacheLookup/>
+  <SkipCachePopulation/>
+</ResponseCache>

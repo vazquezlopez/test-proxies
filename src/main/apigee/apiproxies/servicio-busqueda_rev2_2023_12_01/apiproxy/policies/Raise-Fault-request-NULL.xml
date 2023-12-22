@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="Raise-Fault-request-NULL">
+  <DisplayName>Raise Fault-request-NULL</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">{
+    "tipo": "error",
+    "estado": "409",
+    "codigo": "Conflict",
+    "accion" : "{request.verb}", 
+	"aplicacion" : null, 
+	"parametros" : "{request.querystring}", 
+	"ruta" : "{proxy.pathsuffix}", 
+	"uri" : "{proxy.basepath}",
+    "respuesta": {
+        "estado":{
+            "codigo":"NOK",
+            "descripcion":"resultado con observaciones"
+        },
+        "resultado":null,
+        "observaciones": [
+            {
+                "codigo": "005",
+                "descripcion": "Nombre de parametro de entrada no encontrado"
+            }
+        ],
+        "error": null
+    },
+    "tiempo": "{client.received.end.timestamp}",
+	"organizacion" : "{organization.name}",
+	"ip": "{proxy.client.ip}",
+    "id": "{messageid}"
+}
+            </Payload>
+      <StatusCode>409</StatusCode>
+      <ReasonPhrase>Conflict</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

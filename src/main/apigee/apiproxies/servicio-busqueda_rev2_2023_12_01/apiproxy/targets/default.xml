@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+  <Description>SOAP target generated from undefined</Description>
+  <!--<FaultRules>
+  <FaultRule name="Error">
+    <Condition>response.status.code != 200</Condition>
+    <Step>
+      <Name>Response-errores-backend</Name>
+    </Step>
+  </FaultRule>
+</FaultRules>-->
+<PreFlow name="PreFlow">
+  <Request>
+    <Step>
+      <Name>set-target-url</Name>
+    </Step>
+    <Step>
+      <Name>Credenciales-Semantikos</Name>
+    </Step>
+    <Step>
+      <Name>Basic-Authentication-Semantikos</Name>
+    </Step>
+  </Request>
+  <Response>
+    <!--<Step>
+    <Name>BackEndNotResponse</Name>
+    <Condition>(response.status.code >= 400)</Condition>
+  </Step>-->
+  <Step>
+    <Name>remove-namespaces</Name>
+  </Step>
+  <Step>
+    <Name>xml-to-json</Name>
+    <Condition>(verb != "GET" AND contentformat == "application/json") OR (verb == "GET" AND acceptformat !~ "*/xml")</Condition>
+  </Step>
+  <Step>
+    <Name>get-response-soap-body</Name>
+    <Condition>(verb != "GET" AND contentformat == "application/json") OR (verb == "GET" AND acceptformat !~ "*/xml")</Condition>
+  </Step>
+  <Step>
+    <Name>get-response-soap-body-xml</Name>
+    <Condition>(verb != "GET" AND contentformat != "application/json") OR (verb == "GET" AND acceptformat ~ "*/xml")</Condition>
+  </Step>
+  <Step>
+    <Name>set-response-soap-body</Name>
+    <Condition>(verb != "GET")</Condition>
+  </Step>
+  <Step>
+    <Name>set-response-soap-body-accept</Name>
+    <Condition>(verb == "GET")</Condition>
+  </Step>
+  <Step>
+    <Name>JavaScript-response</Name>
+  </Step>
+</Response>
+</PreFlow>
+<PostFlow name="PostFlow">
+  <Request/>
+  <Response>
+    <Step>
+      <Name>RecolectaVarOutputShareFlow</Name>
+    </Step>
+    <Step>
+      <Name>SendLog</Name>
+    </Step>
+  </Response>
+</PostFlow>
+<Flows/>
+<DefaultFaultRule name="fault-rule">
+  <Step>
+    <Name>remove-namespaces</Name>
+  </Step>
+  <Step>
+    <Name>xml-to-json</Name>
+    <Condition>(verb != "GET" AND contentformat == "application/json") OR (verb == "GET" AND acceptformat !~ "*/xml")</Condition>
+  </Step>
+  <Step>
+    <Name>get-response-soap-body</Name>
+    <Condition>(verb != "GET" AND contentformat == "application/json") OR (verb == "GET" AND acceptformat !~ "*/xml")</Condition>
+  </Step>
+  <Step>
+    <Name>get-response-soap-body-xml</Name>
+    <Condition>(verb != "GET" AND contentformat != "application/json") OR (verb == "GET" AND acceptformat ~ "*/xml")</Condition>
+  </Step>
+  <Step>
+    <Name>Response-errores-backend</Name>
+    <Condition>(verb != "GET")</Condition>
+  </Step>
+  <Step>
+    <Name>Response-errores-backend</Name>
+    <Condition>(verb == "GET")</Condition>
+  </Step>
+</DefaultFaultRule>
+<HTTPTargetConnection>
+  <Properties>
+    <Property name="response.streaming.enabled">true</Property>
+    <Property name="request.streaming.enabled">true</Property>
+    <Property name="keepalive.timeout.millis">80000</Property>
+    <Property name="connect.timeout.millis">80000</Property>
+    <Property name="io.timeout.millis">80000</Property>
+  </Properties>
+  <!--<URL>http://172.20.16.26:8080/ws/ServicioDeBusqueda</URL>-->
+  <URL>http://stkapp.cloudint.naiss.local/ws/ServicioDeBusqueda</URL>
+</HTTPTargetConnection>
+</TargetEndpoint>

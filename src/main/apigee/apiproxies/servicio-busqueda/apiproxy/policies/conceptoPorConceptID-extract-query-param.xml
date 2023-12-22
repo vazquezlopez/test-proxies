@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="conceptoPorConceptID-extract-query-param">
+  <DisplayName>conceptoPorConceptID-extract-query-param</DisplayName>
+  <Source>request</Source>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <QueryParam name="idEstablecimiento">
+    <Pattern ignoreCase="true">{idEstablecimiento}</Pattern>
+  </QueryParam>
+  <QueryParam name="conceptID">
+    <Pattern ignoreCase="true">{conceptID}</Pattern>
+  </QueryParam>
+</ExtractVariables>

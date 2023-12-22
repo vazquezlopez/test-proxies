@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="true" enabled="true" name="sugerenciasDeDescripciones-build-soap">
+  <DisplayName>sugerenciasDeDescripciones Build SOAP</DisplayName>
+  <Add>
+    <Headers>
+      <Header name="SOAPAction"/>
+    </Headers>
+  </Add>
+  <Set>
+    <Headers>
+      <Header name="Content-Type">text/xml; charset=utf-8</Header>
+    </Headers>
+    <Payload contentType="text/xml">
+      <s11:Envelope xmlns:s11="http://schemas.xmlsoap.org/soap/envelope/">
+        <s11:Body>
+          <ns1:sugerenciasDeDescripciones xmlns:ns1="http://service.ws.semantikos.minsal.cl/">
+            <ns1:peticionSugerenciasDeDescripciones>
+              <idEstablecimiento>{idEstablecimiento}</idEstablecimiento>
+              <!-- from 0 to unbounded -->
+              <nombreCategoria>{messageNombreCategoria}</nombreCategoria>
+              <termino>{termino}</termino>
+            </ns1:peticionSugerenciasDeDescripciones>
+          </ns1:sugerenciasDeDescripciones>
+        </s11:Body>
+      </s11:Envelope>
+    </Payload>
+    <Verb>POST</Verb>
+  </Set>
+  <!--<AssignVariable>
+  <Name>forward.target.url</Name>
+  <Value>http://172.30.20.16/ws/ServicioDeBusqueda</Value>
+</AssignVariable>-->
+<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+<AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Build-Soap">
+    <DisplayName>AM-Build-Soap</DisplayName>
+    <Properties/>
+   <Set>
+    <Headers>
+      <Header name="Content-Type">text/xml; charset=utf-8</Header>
+    </Headers>
+    <Payload contentType="text/xml">
+      <s11:Envelope xmlns:s11="http://schemas.xmlsoap.org/soap/envelope/">
+        <s11:Body>
+          <ns1:conceptosPorRefSet xmlns:ns1="escapeXML({url-semantikos})">
+            <ns1:peticionConceptosPorRefSet>
+              <idEstablecimiento>{idEstablecimiento}</idEstablecimiento>
+              <nombreRefSet>{nombreRefSet}</nombreRefSet>
+            </ns1:peticionConceptosPorRefSet>
+          </ns1:conceptosPorRefSet>
+        </s11:Body>
+      </s11:Envelope>
+    </Payload>
+    <Verb>POST</Verb>
+  </Set>
+    <AssignVariable>
+        <Name>name</Name>
+        <Value/>
+        <Ref/>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

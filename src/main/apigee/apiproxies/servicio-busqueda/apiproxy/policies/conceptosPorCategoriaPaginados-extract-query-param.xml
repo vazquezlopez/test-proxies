@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="true" enabled="true" name="conceptosPorCategoriaPaginados-extract-query-param">
+  <DisplayName>conceptosPorCategoriaPaginados Extract Query Param</DisplayName>
+  <Source>request</Source>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <QueryParam name="idEstablecimiento">
+    <Pattern ignoreCase="true">{idEstablecimiento}</Pattern>
+  </QueryParam>
+  <QueryParam name="nombreCategoria">
+    <Pattern ignoreCase="true">{nombreCategoria}</Pattern>
+  </QueryParam>
+  <QueryParam name="numeroPagina">
+    <Pattern ignoreCase="true">{numeroPagina}</Pattern>
+  </QueryParam>
+  <QueryParam name="tamanoPagina">
+    <Pattern ignoreCase="true">{tamanoPagina}</Pattern>
+  </QueryParam>
+</ExtractVariables>

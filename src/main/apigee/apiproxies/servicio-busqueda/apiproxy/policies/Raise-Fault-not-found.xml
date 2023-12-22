@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="Raise-Fault-not-found">
+  <DisplayName>Raise Fault-not found</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">{
+    "tipo": "error",
+    "estado": "404",
+    "codigo": "Not Found",
+    "accion" : "{request.verb}", 
+	"aplicacion" : null, 
+	"parametros" : "{request.querystring}", 
+	"ruta" : "{proxy.pathsuffix}", 
+	"uri" : "{proxy.basepath}",
+    "respuesta": {
+        "estado":{
+            "codigo":"ERROR",
+            "descripcion":"API con problemas"
+        },
+        "resultado":null,
+        "observaciones": null,
+        "error": "Método .. {proxy.pathsuffix} no encontrado"
+    },
+    "tiempo": "{client.received.end.timestamp}",
+	"organizacion" : "{organization.name}",
+	"ip": "{proxy.client.ip}",
+    "id": "{messageid}"
+}
+            </Payload>
+      <StatusCode>404</StatusCode>
+      <ReasonPhrase>Not Found</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

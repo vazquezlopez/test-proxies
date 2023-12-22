@@ -1,0 +1,2115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="return-open-api">
+  <DisplayName>Return Open API</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <StatusCode>200</StatusCode>
+      <Headers>
+        <Header name="Content-Type">application/json</Header>
+      </Headers>
+      <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ServicioDeBusqueda",
+    "description": "A OAS document generated from WSDL",
+    "termsOfService": "",
+    "contact": {
+      "name": "API Team"
+    },
+    "license": {
+      "name": "Apache 2.0"
+    }
+  },
+  "host": "@request.header.host#",
+  "basePath": "/v2/serviciodebusqueda",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/crossmapsetmembersdecrossmapset": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/crossmapSetMembersDeCrossmapSetResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation crossmapSetMembersDeCrossmapSet",
+        "parameters": [
+          {
+            "name": "idEstablecimiento",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/conceptosporcategoriapaginados": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/conceptosPorCategoriaPaginadosResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation conceptosPorCategoriaPaginados",
+        "parameters": [
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionIDPreferida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionPreferida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreCategoria",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreCortoCrossmapSet",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreCrossmapSet",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "NombreCortoCrossmapSet",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "VersionCrossmapSet",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "idCrossmapSetMember",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cod1CrossmapSetMember",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descripcionCrossmapSetMember",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cantidadRegistros",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "idEstablecimiento",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/conceptoporiddescripcion": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/conceptoPorIdDescripcionResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation conceptoPorIdDescripcion",
+        "parameters": [
+          {
+            "name": "nombreCategoria",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAbreviado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "restringida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "revisar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consultar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "completamenteDefinido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validoHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaCreacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaPublicacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "observacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tipoDescripcion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "esSensibleAMayusculas",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAutgenerado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validaHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usos",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreUsuario",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segundoApellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rut",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoLogin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoCambioPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAbreviado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "restringida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "revisar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consultar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "completamenteDefinido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validoHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaCreacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaPublicacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "observacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tipoDescripcion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "esSensibleAMayusculas",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAutgenerado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validaHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usos",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreUsuario",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segundoApellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rut",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoLogin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoCambioPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAbreviado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "restringida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "revisar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consultar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "completamenteDefinido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validoHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaCreacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaPublicacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "observacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tipoDescripcion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "esSensibleAMayusculas",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAutgenerado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validaHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usos",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreUsuario",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segundoApellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rut",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoLogin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoCambioPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAbreviado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "restringida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "revisar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consultar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "completamenteDefinido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validoHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaCreacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaPublicacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "observacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tipoDescripcion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "esSensibleAMayusculas",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAutgenerado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validaHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usos",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreUsuario",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segundoApellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rut",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoLogin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoCambioPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAbreviado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "restringida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "revisar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consultar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "completamenteDefinido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validoHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaCreacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaPublicacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "observacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tipoDescripcion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "esSensibleAMayusculas",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAutgenerado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validaHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usos",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreUsuario",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segundoApellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rut",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoLogin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoCambioPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAbreviado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "restringida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "revisar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consultar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "completamenteDefinido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validoHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaCreacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaPublicacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "observacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tipoDescripcion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "esSensibleAMayusculas",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAutgenerado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validaHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usos",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreUsuario",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segundoApellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rut",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoLogin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoCambioPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAbreviado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "restringida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conceptID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "revisar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "consultar",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "completamenteDefinido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validoHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaCreacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fechaPublicacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "observacion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "descriptionID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tipoDescripcion",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "valida",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "esSensibleAMayusculas",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreAutgenerado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "publicado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "modelado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "validaHasta",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "creado",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "usos",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombreUsuario",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "nombre",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "apellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "segundoApellido",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "rut",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoLogin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "ultimoCambioPassword",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "cantidadRegistros",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/conceptosporrefset": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/conceptosPorRefSetResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation conceptosPorRefSet",
+        "parameters": []
+      }
+    },
+    "/obtenercrossmapsdirectos": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/obtenerCrossmapsDirectosResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation obtenerCrossmapsDirectos",
+        "parameters": []
+      }
+    },
+    "/sugerenciasdedescripciones": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/sugerenciasDeDescripcionesResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation sugerenciasDeDescripciones",
+        "parameters": []
+      }
+    },
+    "/refsetsporiddescripcion": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/refSetsPorIdDescripcionResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation refSetsPorIdDescripcion",
+        "parameters": []
+      }
+    },
+    "/listacategorias": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/listaCategoriasResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation listaCategorias",
+        "parameters": []
+      }
+    },
+    "/buscarterminoperfectmatch": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/buscarTerminoPerfectMatchResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation buscarTerminoPerfectMatch",
+        "parameters": []
+      }
+    },
+    "/listacrossmapsets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/listaCrossmapSetsResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation listaCrossmapSets",
+        "parameters": []
+      }
+    },
+    "/listarefsets": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/listaRefSetsResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation listaRefSets",
+        "parameters": []
+      }
+    },
+    "/obtenercrossmapsindirectos": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/obtenerCrossmapsIndirectosResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation obtenerCrossmapsIndirectos",
+        "parameters": []
+      }
+    },
+    "/descripcionespreferidasporrefset": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/descripcionesPreferidasPorRefSetResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation descripcionesPreferidasPorRefSet",
+        "parameters": []
+      }
+    },
+    "/obtenerterminospedibles": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/obtenerTerminosPediblesResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation obtenerTerminosPedibles",
+        "parameters": []
+      }
+    },
+    "/buscarterminotruncateperfect": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/buscarTerminoTruncatePerfectResponse"
+            }
+          }
+        },
+        "description": "Implements WSDL operation buscarTerminoTruncatePerfect",
+        "parameters": []
+      }
+    }
+  },
+  "definitions": {
+    "crossmapSetMembersDeCrossmapSet": {
+      "properties": {
+        "peticionCrosmapSetMembersDeCrossmapSet": {
+          "$ref": "#/definitions/peticionCrosmapSetMembersDeCrossmapSet"
+        }
+      },
+      "type": "object"
+    },
+    "peticionCrosmapSetMembersDeCrossmapSet": {
+      "properties": {},
+      "type": "object"
+    },
+    "Request": {
+      "properties": {
+        "idEstablecimiento": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "crossmapSetMembersDeCrossmapSetResponse": {
+      "properties": {
+        "respuestaCrosmapSetMembersDeCrossmapSet": {
+          "$ref": "#/definitions/respuestaCrosmapSetMembersDeCrossmapSet"
+        }
+      },
+      "type": "object"
+    },
+    "respuestaCrosmapSetMembersDeCrossmapSet": {
+      "properties": {
+        "conceptID": {
+          "type": "string"
+        },
+        "descriptionIDPreferida": {
+          "type": "string"
+        },
+        "descriptionPreferida": {
+          "type": "string"
+        },
+        "nombreCategoria": {
+          "type": "string"
+        },
+        "nombreCortoCrossmapSet": {
+          "type": "string"
+        },
+        "nombreCrossmapSet": {
+          "type": "string"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "crossmapSetMembers": {
+          "$ref": "#/definitions/crossmapSetMembers"
+        },
+        "cantidadRegistros": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "type": "object"
+    },
+    "crossmapSetMembers": {
+      "properties": {
+        "crossmapSetMember": {
+          "$ref": "#/definitions/crossmapSetMember"
+        }
+      },
+      "type": "object"
+    },
+    "crossmapSetMember": {
+      "properties": {
+        "NombreCortoCrossmapSet": {
+          "type": "string"
+        },
+        "VersionCrossmapSet": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "idCrossmapSetMember": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "cod1CrossmapSetMember": {
+          "type": "string"
+        },
+        "descripcionCrossmapSetMember": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "conceptosPorCategoriaPaginados": {
+      "properties": {
+        "peticionConceptosPorCategoriaPaginados": {
+          "$ref": "#/definitions/peticionConceptosPorCategoriaPaginados"
+        }
+      },
+      "type": "object"
+    },
+    "peticionConceptosPorCategoriaPaginados": {
+      "properties": {},
+      "type": "object"
+    },
+    "conceptosPorCategoriaPaginadosResponse": {
+      "properties": {
+        "respuestaConceptosPorCategoriaPaginados": {
+          "$ref": "#/definitions/respuestaConceptosPorCategoriaPaginados"
+        }
+      },
+      "type": "object"
+    },
+    "respuestaConceptosPorCategoriaPaginados": {
+      "properties": {
+        "nombreCategoria": {
+          "type": "string"
+        },
+        "conceptos": {
+          "$ref": "#/definitions/conceptos"
+        },
+        "cantidadRegistros": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "type": "object"
+    },
+    "conceptos": {
+      "properties": {
+        "concepto": {
+          "$ref": "#/definitions/concepto"
+        }
+      },
+      "type": "object"
+    },
+    "concepto": {
+      "properties": {},
+      "type": "object"
+    },
+    "categoria": {
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "nombreAbreviado": {
+          "type": "string"
+        },
+        "restringida": {
+          "type": "boolean"
+        }
+      },
+      "type": "object"
+    },
+    "descripciones": {
+      "properties": {
+        "descripcion": {
+          "$ref": "#/definitions/descripcion"
+        }
+      },
+      "type": "object"
+    },
+    "descripcion": {
+      "properties": {
+        "descriptionID": {
+          "type": "string"
+        },
+        "tipoDescripcion": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "valida": {
+          "type": "boolean"
+        },
+        "esSensibleAMayusculas": {
+          "type": "boolean"
+        },
+        "nombreAutgenerado": {
+          "type": "boolean"
+        },
+        "publicado": {
+          "type": "boolean"
+        },
+        "modelado": {
+          "type": "boolean"
+        },
+        "validaHasta": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "creado": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "usos": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "usuarioCreador": {
+          "$ref": "#/definitions/usuarioCreador"
+        },
+        "concepto": {
+          "$ref": "#/definitions/concepto"
+        }
+      },
+      "type": "object"
+    },
+    "usuarioCreador": {
+      "properties": {
+        "nombreUsuario": {
+          "type": "string"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "apellido": {
+          "type": "string"
+        },
+        "segundoApellido": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "rut": {
+          "type": "string"
+        },
+        "ultimoLogin": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ultimoCambioPassword": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "type": "object"
+    },
+    "atributos": {
+      "properties": {},
+      "type": "object"
+    },
+    "relaciones": {
+      "properties": {},
+      "type": "object"
+    },
+    "relacionesSnomedCT": {
+      "properties": {},
+      "type": "object"
+    },
+    "crossmapsIndirectos": {
+      "properties": {},
+      "type": "object"
+    },
+    "crossmapsDirectos": {
+      "properties": {},
+      "type": "object"
+    },
+    "refSets": {
+      "properties": {},
+      "type": "object"
+    },
+    "tags": {
+      "properties": {},
+      "type": "object"
+    },
+    "conceptoPorIdDescripcion": {
+      "properties": {},
+      "type": "object"
+    },
+    "conceptoPorIdDescripcionResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "conceptosPorRefSet": {
+      "properties": {},
+      "type": "object"
+    },
+    "conceptosPorRefSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "obtenerCrossmapsDirectos": {
+      "properties": {},
+      "type": "object"
+    },
+    "obtenerCrossmapsDirectosResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "sugerenciasDeDescripciones": {
+      "properties": {},
+      "type": "object"
+    },
+    "sugerenciasDeDescripcionesResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "refSetsPorIdDescripcion": {
+      "properties": {},
+      "type": "object"
+    },
+    "refSetsPorIdDescripcionResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "listaCategorias": {
+      "properties": {},
+      "type": "object"
+    },
+    "listaCategoriasResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "buscarTerminoPerfectMatch": {
+      "properties": {},
+      "type": "object"
+    },
+    "buscarTerminoPerfectMatchResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "listaCrossmapSets": {
+      "properties": {},
+      "type": "object"
+    },
+    "listaCrossmapSetsResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "listaRefSets": {
+      "properties": {},
+      "type": "object"
+    },
+    "listaRefSetsResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "obtenerCrossmapsIndirectos": {
+      "properties": {},
+      "type": "object"
+    },
+    "obtenerCrossmapsIndirectosResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "descripcionesPreferidasPorRefSet": {
+      "properties": {},
+      "type": "object"
+    },
+    "descripcionesPreferidasPorRefSetResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "obtenerTerminosPedibles": {
+      "properties": {},
+      "type": "object"
+    },
+    "obtenerTerminosPediblesResponse": {
+      "properties": {},
+      "type": "object"
+    },
+    "buscarTerminoTruncatePerfect": {
+      "properties": {},
+      "type": "object"
+    },
+    "buscarTerminoTruncatePerfectResponse": {
+      "properties": {},
+      "type": "object"
+    }
+  }
+}</Payload>
+    </Set>
+  </FaultResponse>
+</RaiseFault>

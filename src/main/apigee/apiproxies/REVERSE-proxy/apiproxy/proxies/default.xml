@@ -1,0 +1,15 @@
+<ProxyEndpoint name="default">
+   <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>AM-test</Name>
+            </Step>
+        </Request>
+  </PreFlow>
+  <HTTPProxyConnection>
+    <BasePath>/reverse-proxy</BasePath>
+  </HTTPProxyConnection>
+  <RouteRule name="backend">
+    <TargetEndpoint>backend</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

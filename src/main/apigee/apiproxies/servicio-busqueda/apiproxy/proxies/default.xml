@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <Description>ServicioDeBusqueda</Description>
+  <!--<FaultRules>
+  <FaultRule name="OAuthV2 Faults">
+    <Step>
+      <Name>401-Not-Authorized</Name>
+      <Condition>(fault.name = "invalid_client") OR (fault.name = "InvalidClientIdentifier")</Condition>
+    </Step>
+    <Step>
+      <Name>401-Not-Authorized</Name>
+      <Condition>(fault.name = "invalid_access_token")</Condition>
+    </Step>
+    <Condition>(oauthV2.failed = true)</Condition>
+  </FaultRule>
+  <DefaultFaultRule name="raiseFault">
+    <Step>
+      <Name>SendLog</Name>
+    </Step>
+  </DefaultFaultRule>
+</FaultRules>-->
+<PreFlow name="PreFlow">
+  <Request>
+    <Step>
+      <Name>SpikeArrest</Name>
+    </Step>
+    <!--<Step>
+    <Name>400-Bad-Request-Missing-Auth-Header</Name>
+    <Condition>request.header.authorization = null</Condition>
+  </Step>-->
+  <Step>
+    <Name>extract-format</Name>
+  </Step>
+  <Step>
+    <Name>verify-oauth-v2-access-token</Name>
+  </Step>
+  <Step>
+    <Name>remove-header-authorization</Name>
+  </Step>
+  <Step>
+    <Name>RecolectaVarInputSharedFlow</Name>
+  </Step>
+</Request>
+<Response/>
+</PreFlow>
+<PostFlow name="PostFlow">
+  <Request/>
+  <Response/>
+</PostFlow>
+<Flows>
+  <Flow name="GetOAS">
+    <Description>Get Open API Specification</Description>
+    <Request>
+      <Step>
+        <Name>return-open-api</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/openapi.json") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="obtenerCrossmapsDirectos">
+    <Description>obtenerCrossmapsDirectos</Description>
+    <Request>
+      <Step>
+        <Name>obtenerCrossmapsDirectos-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (descriptionID == null) || (conceptID == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>obtenerCrossmapsDirectos-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/obtenercrossmapsdirectos") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="conceptosPorCategoriaPaginados">
+    <Description>conceptosPorCategoriaPaginados</Description>
+    <Request>
+      <Step>
+        <Name>conceptosPorCategoriaPaginados-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreCategoria == null) || (numeroPagina == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>conceptosPorCategoriaPaginados-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/conceptosporcategoriapaginados") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="crossmapSetMembersDeCrossmapSet">
+    <Description>crossmapSetMembersDeCrossmapSet</Description>
+    <Request>
+      <Step>
+        <Name>crossmapSetMembersDeCrossmapSet-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreAbreviadoCrossmapSet == null) ||
+                                (numeroPagina == null) || (tamanoPagina == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>crossmapSetMembersDeCrossmapSet-build-soap</Name>
+      </Step>
+      <Step>
+        <Name>Response-Cache-CrossmapSetMembersDeCrossmapSet</Name>
+      </Step>
+    </Request>
+    <Response>
+      <Step>
+        <Name>Response-Cache-CrossmapSetMembersDeCrossmapSet</Name>
+      </Step>
+    </Response>
+    <Condition>(proxy.pathsuffix MatchesPath "/crossmapsetmembersdecrossmapset") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="listaCategorias">
+    <Description>listaCategorias</Description>
+    <Request>
+      <Step>
+        <Name>listaCategorias-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Name>listaCategorias-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/listacategorias") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="obtenerCrossmapsIndirectos">
+    <Description>obtenerCrossmapsIndirectos</Description>
+    <Request>
+      <Step>
+        <Name>obtenerCrossmapsIndirectos-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (descriptionID == null) || (conceptID == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>obtenerCrossmapsIndirectos-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/obtenercrossmapsindirectos") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="buscarTerminoTruncatePerfect">
+    <Description>buscarTerminoTruncatePerfect</Description>
+    <Request>
+      <Step>
+        <Name>buscarTerminoTruncatePerfect-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreCategoria == null) || (nombreRefSet == null) || 
+                    (terminoBuscar == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>Create-Message-buscarTerminoTruncatePerfect</Name>
+      </Step>
+      <Step>
+        <Name>buscarTerminoTruncatePerfect-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/buscarterminotruncateperfect") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="buscarTerminoSnomedTruncatePerfect">
+    <Description>buscarTerminoSnomedTruncatePerfect</Description>
+    <Request>
+      <Step>
+        <Name>buscarTerminoSnomedTruncatePerfect-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (numeroPagina == null) ||
+                                (tamanoPagina == null) ||(terminoBuscar == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>buscarTerminoSnomedTruncatePerfect-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/farmacos/exactos-->
+    <!--/buscarterminoperfectmatch-->
+    <Condition>(proxy.pathsuffix MatchesPath "/buscarterminotruncateperfect/snomed") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="listaRefSets">
+    <Description>listaRefSets</Description>
+    <Request>
+      <Step>
+        <Name>listaRefSets-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (incluyeEstablecimientos == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>listaRefSets-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/listarefsets") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="conceptoPorIdDescripcion">
+    <Description>conceptoPorIdDescripcion</Description>
+    <Request>
+      <Step>
+        <Name>conceptoPorIdDescripcion-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (descriptionID == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>conceptoPorIdDescripcion-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/conceptoporiddescripcion-->
+    <Condition>(proxy.pathsuffix MatchesPath "/conceptos/idDescripcion") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="conceptoSCTPorDescriptionID">
+    <Description>conceptoSCTPorDescriptionID</Description>
+    <Request>
+      <Step>
+        <Name>conceptoSCTPorDescriptionID-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (descriptionID == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>conceptoSCTPorDescriptionID-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/conceptoporiddescripcion-->
+    <Condition>(proxy.pathsuffix MatchesPath "/conceptos/sct/idDescripcion") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="conceptIDPorGTIN">
+    <Description>conceptIDPorGTIN</Description>
+    <Request>
+      <Step>
+        <Name>conceptIDPorGTIN-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (GTIN == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>conceptIDPorGTIN-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/conceptoporiddescripcion-->
+    <Condition>(proxy.pathsuffix MatchesPath "/conceptos/gtin") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="conceptoSCTPorConceptID">
+    <Description>conceptoSCTPorConceptID</Description>
+    <Request>
+      <Step>
+        <Name>conceptoSCTPorConceptID-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (conceptID == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>conceptoSCTPorConceptID-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/conceptos/sct/idConcepto") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="conceptoPorConceptID">
+    <Description>conceptoPorConceptID</Description>
+    <Request>
+      <Step>
+        <Name>conceptoPorConceptID-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (conceptID == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>conceptoPorConceptID-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/conceptoporiddescripcion-->
+    <Condition>(proxy.pathsuffix MatchesPath "/conceptos/idConcepto") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="listaCrossmapSets">
+    <Description>listaCrossmapSets</Description>
+    <Request>
+      <Step>
+        <Name>listaCrossmapSets-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>listaCrossmapSets-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/listacrossmapsets") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="refSetsPorIdDescripcion">
+    <Description>refSetsPorIdDescripcion</Description>
+    <Request>
+      <Step>
+        <Name>refSetsPorIdDescripcion-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (descriptionID == null) ||
+                    (incluyeEstablecimientos == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>Create-Message-refSetsPorIdDescripcion</Name>
+      </Step>
+      <Step>
+        <Name>refSetsPorIdDescripcion-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/refsetsporiddescripcion") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="sugerenciasDeDescripciones">
+    <Description>sugerenciasDeDescripciones</Description>
+    <Request>
+      <Step>
+        <Name>sugerenciasDeDescripciones-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreCategoria == null) ||
+                    (termino == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>Create-Message-sugerenciasDeDescripciones</Name>
+      </Step>
+      <Step>
+        <Name>sugerenciasDeDescripciones-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/farmacos/sugerencias-->
+    <!--/sugerenciasdedescripciones-->
+    <Condition>(proxy.pathsuffix MatchesPath "/descripciones/sugerencias") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="sugerenciasDeDescripcionesSnomed">
+    <Description>sugerenciasDeDescripcionesSnomed</Description>
+    <Request>
+      <Step>
+        <Name>sugerenciasDeDescripcionesSnomed-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (termino == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>sugerenciasDeDescripcionesSnomed-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/farmacos/sugerencias-->
+    <!--/sugerenciasdedescripciones-->
+    <Condition>(proxy.pathsuffix MatchesPath "/descripciones/sugerencias/snomed") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="descripcionesPreferidasPorRefSet">
+    <Description>descripcionesPreferidasPorRefSet</Description>
+    <Request>
+      <Step>
+        <Name>descripcionesPreferidasPorRefSet-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreRefSet == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>descripcionesPreferidasPorRefSet-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/descripcionespreferidasporrefset") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="obtenerTerminosPedibles">
+    <Description>obtenerTerminosPedibles</Description>
+    <Request>
+      <Step>
+        <Name>obtenerTerminosPedibles-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreCategoria == null) || (pedible == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>Create-Message-obtenerTerminosPedibles</Name>
+      </Step>
+      <Step>
+        <Name>obtenerTerminosPedibles-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/obtenerterminospedibles") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="conceptosPorRefSet">
+    <Description>conceptosPorRefSet</Description>
+    <Request>
+      <Step>
+        <Name>conceptosPorRefSet-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreRefSet == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>conceptosPorRefSet-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <Condition>(proxy.pathsuffix MatchesPath "/conceptosporrefset") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="buscarTerminoPerfectMatch">
+    <Description>buscarTerminoPerfectMatch</Description>
+    <Request>
+      <Step>
+        <Name>buscarTerminoPerfectMatch-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (nombreCategoria == null) ||
+                                (terminoBuscar == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>Create-Message-buscarTerminoPerfectMatch</Name>
+      </Step>
+      <Step>
+        <Name>buscarTerminoPerfectMatch-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/farmacos/exactos-->
+    <!--/buscarterminoperfectmatch-->
+    <Condition>(proxy.pathsuffix MatchesPath "/descripciones/exactas") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="buscarTerminoSnomedPerfectMatch">
+    <Description>buscarTerminoSnomedPerfectMatch</Description>
+    <Request>
+      <Step>
+        <Name>buscarTerminoSnomedPerfectMatch-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (numeroPagina == null) ||
+                                (tamanoPagina == null) || (terminoBuscar == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>buscarTerminoSnomedPerfectMatch-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/farmacos/exactos-->
+    <!--/buscarterminoperfectmatch-->
+    <Condition>(proxy.pathsuffix MatchesPath "/descripciones/exactas/snomed") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="GTINPorConceptID">
+    <Description>GTINPorConceptID</Description>
+    <Request>
+      <Step>
+        <Name>GTINPorConceptID-extract-query-param</Name>
+      </Step>
+      <Step>
+        <Condition>(idEstablecimiento == null) || (conceptID == null) || (descriptionID == null)</Condition>
+        <Name>Raise-Fault-request-NULL</Name>
+      </Step>
+      <Step>
+        <Name>GTINPorConceptID-build-soap</Name>
+      </Step>
+    </Request>
+    <Response/>
+    <!--/conceptoporiddescripcion-->
+    <Condition>(proxy.pathsuffix MatchesPath "/gtin/idConcept") and (request.verb = "GET")</Condition>
+  </Flow>
+  <Flow name="notFound">
+    <Description/>
+    <Request>
+      <Step>
+        <Name>Raise-Fault-not-found</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </Flow>
+</Flows>
+<HTTPProxyConnection>
+  <BasePath>/v1/semantikos/servicios/busquedas</BasePath>
+  <Properties/>
+  <VirtualHost>produccion</VirtualHost>
+  <VirtualHost>agendamiento</VirtualHost>
+</HTTPProxyConnection>
+<RouteRule name="default">
+  <TargetEndpoint>default</TargetEndpoint>
+</RouteRule>
+</ProxyEndpoint>

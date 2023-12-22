@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-Set-Variables">
+    <DisplayName>AM-Set-Variables</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>url-semantikos</Name>
+        <Value>http://service.ws.semantikos.minsal.cl/</Value>
+        <Name>idEstablecimiento</Name>
+        <Value>1</Value>
+        <Name>nombreRefSet</Name>
+        <Value>ref</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

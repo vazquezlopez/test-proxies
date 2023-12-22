@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="true" enabled="true" name="conceptosPorCategoriaPaginados-build-soap">
+  <DisplayName>conceptosPorCategoriaPaginados Build SOAP</DisplayName>
+  <Add>
+    <Headers>
+      <Header name="SOAPAction"/>
+    </Headers>
+  </Add>
+  <Set>
+    <Headers>
+      <Header name="Content-Type">text/xml; charset=utf-8</Header>
+    </Headers>
+    <Payload contentType="text/xml">
+      <s11:Envelope xmlns:s11="http://schemas.xmlsoap.org/soap/envelope/">
+        <s11:Body>
+          <ns1:conceptosPorCategoriaPaginados xmlns:ns1="http://service.ws.semantikos.minsal.cl/">
+            <peticionConceptosPorCategoriaPaginados>
+              <idEstablecimiento>{idEstablecimiento}</idEstablecimiento>
+              <nombreCategoria>{nombreCategoria}</nombreCategoria>
+              <!-- this element has a default value -->
+              <numeroPagina>{numeroPagina}</numeroPagina>
+              <!-- this element has a default value -->
+              <tamanoPagina>{tamanoPagina}</tamanoPagina>
+            </peticionConceptosPorCategoriaPaginados>
+          </ns1:conceptosPorCategoriaPaginados>
+        </s11:Body>
+      </s11:Envelope>
+    </Payload>
+    <Verb>POST</Verb>
+  </Set>
+  <!--<AssignVariable>
+  <Name>forward.target.url</Name>
+  <Value>http://172.30.20.16/ws/ServicioDeBusqueda</Value>
+</AssignVariable>-->
+<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+<AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

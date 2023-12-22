@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="400-Bad-Request-Missing-Auth-Header">
+  <DisplayName>400-Bad-Request-Missing-Auth-Header</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Set>
+      <Headers/>
+      <Payload contentType="application/json">{
+    "tipo": "error",
+    "estado": "400",
+    "codigo": "Bad Request",
+    "accion" : "{request.verb}", 
+	"aplicacion" : null, 
+	"parametros" : "{request.querystring}", 
+	"ruta" : "{proxy.pathsuffix}", 
+	"uri" : "{proxy.basepath}",
+    "respuesta": {
+        "estado":{
+            "codigo":"ERROR",
+            "descripcion":"API con problemas"
+        },
+        "resultado":null,
+        "observaciones": null,
+        "error": "Falta el encabezado de autorización"
+    },
+    "tiempo": "{client.received.end.timestamp}",
+	"organizacion" : "{organization.name}",
+	"ip": "{proxy.client.ip}",
+    "id": "{messageid}"
+}
+            </Payload>
+      <StatusCode>400</StatusCode>
+      <ReasonPhrase>Bad Request</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

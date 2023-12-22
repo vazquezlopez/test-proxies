@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="true" enabled="true" name="descripcionesPreferidasPorRefSet-extract-query-param">
+  <DisplayName>descripcionesPreferidasPorRefSet Extract Query Param</DisplayName>
+  <Source>request</Source>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <QueryParam name="idEstablecimiento">
+    <Pattern ignoreCase="true">{idEstablecimiento}</Pattern>
+  </QueryParam>
+  <QueryParam name="nombreRefSet">
+    <Pattern ignoreCase="true">{nombreRefSet}</Pattern>
+  </QueryParam>
+</ExtractVariables>
