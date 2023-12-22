@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<RaiseFault async="false" continueOnError="false" enabled="true" name="401-Not-Authorized">
-  <DisplayName>401-Not-Authorized</DisplayName>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-401-Not-Authorized">
+  <DisplayName>RF-401-Not-Authorized</DisplayName>
   <Properties/>
   <FaultResponse>
     <Set>
